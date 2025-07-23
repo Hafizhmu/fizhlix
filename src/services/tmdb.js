@@ -26,9 +26,11 @@ export const searchMovies = async (query, setErrorMessage) => {
   }
 };
 
-export const fetchMovies = async (callback, setErrorMessage) => {
+export const fetchMovies = async (callback, setErrorMessage, query) => {
   try {
-    const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc`;
+    const endpoint = query
+      ? `${BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
+      : `${BASE_URL}/discover/movie?sort_by=popularity.desc`;
     const response = await axios.get(endpoint, API_OPTIONS);
 
     // response.data akan berisi seluruh data dari API
