@@ -46,6 +46,13 @@ function App() {
     try {
       const movies = await getTrendingMovies();
       setTrendingMovies(movies);
+      // Ganti poster_url yang null dengan image default
+      const processedMovies = movies.map((movie) => ({
+        ...movie,
+        poster_url: movie.poster_url || "/img/default-poster.jpg", // sesuaikan path image default
+      }));
+
+      setTrendingMovies(processedMovies);
     } catch (error) {
       console.error("Error fetching trending movies:", error);
     }
