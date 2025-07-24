@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Search from "./components/search";
+import Search from "./components/Search";
 import { fetchMovies } from "./services/tmdb";
 import Spinner from "./components/Spinner";
 import MovieCard from "./components/MovieCard";
